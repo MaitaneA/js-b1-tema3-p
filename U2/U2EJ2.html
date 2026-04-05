@@ -36,14 +36,25 @@
 				background-color: grey;
 			}
             /*Escribe aquí tu solución / escriviu aquí la vostra solució:*/
-            
+            .featuredContent {
+                background-color: black;
+                border-color: blue;
+                border-width: 2px;
+                color: yellow;
+                font-size: 30px;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
         <div id="myContent" class="content normalContent">INITIAL CONTENT</div>
         <script defer id="solutionJS">
             //Escribe aquí tu solución / escriviu aquí la vostra solució:
-			
+			const myContent = document.getElementById("myContent");
+            myContent.textContent = "FEATURED CONTENT";
+            myContent.classList.replace("normalContent", "featuredContent");
+            //myContent.classList.add("featuredContent");
+            //myContent.classList.remove("normalContent");
         </script>
         <script defer id="test">
             /**

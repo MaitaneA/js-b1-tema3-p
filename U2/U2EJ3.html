@@ -13,20 +13,6 @@
 	- Finalmente, eliminar uno de los elementos de la clase "paragraph" creados anteriormente.	
 	  
 	Consejo: para comprobar si un elemento existe: si lo capturamos en una variable desde el DOM con el método querySelector y no existe, el valor de la variable será null. 
-  	
-    -- CATALÀ
-    -- EXERCICI 3.2.2 ENUNCIAT: 
-	Creació i eliminació d'elements del DOM:
-	Donat el següent document HTML, se'ns demana:
-	- Crear una funció, a la qual anomenarem (createTitle) que rebi un text i que, després de comprovar al DOM que no existeix un element de la classe "title" (si existeix no farà res), creï un element de tipus <div>
-	  al qual definirem de la classe "title" i al que, abans d'afegir-lo a l'element amb id = myContent del DOM, afegirem un element de tipus <H1> que contingui al seu interior el text rebut per paràmetre.
-	- Crear una funció, a la qual anomenarem (createParagraph) que rebi un text i que, després de comprovar al DOM que existeix un element de la classe "title" (si no existeix no farà res)
-	  creï un element de tipus <p> el qual el definirem amb la classe "paragraph" i l'afegirem a l'element de la classe "title" definit anteriorment.
-	- Implementar trucades a les funcions anteriors de manera que creem al DOM un element de la classe "title" i hi afegim 3 elements de la classe "paragraph" amb textos diferents.
-	- Finalment, elimineu un dels elements de la classe "paragraph" creats anteriorment.
-	
-	Consell: per comprovar si un element existeix: si el capturem en una variable des del DOM amb el mètode querySelector i no hi existeix, el valor de la variable serà null.
-
 -->
 <!DOCTYPE html>
 <html>
@@ -54,7 +40,33 @@
     </body>
 	<script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
-		
+		function createTitle(text) {
+			if (document.getElementsByClassName("title")[0] !== undefined)  return;
+
+			const title = document.createElement("div");
+			title.classList.add("title");
+			title.innerHTML = "<h1>" + text + "</h1>";
+
+			const myContent = document.getElementById("myContent");
+			myContent.appendChild(title);
+		}
+		function createParagraph(text) {
+			if (document.getElementsByClassName("title")[0] === undefined)  return;
+
+			const paragraph = document.createElement("p");
+			paragraph.classList.add("paragraph");
+			paragraph.textContent = text;
+
+			const title = document.getElementsByClassName("title")[0];
+			title.appendChild(paragraph);
+		}
+
+		createTitle("This is a shiny title");
+		createParagraph("And this is a paragraph with lots and lots of things to say. Ok, maybe not so many.");
+		createParagraph("We also need a second paragraph so here it is. Useless text in your screen - hello?");
+		createParagraph("And here we have a paragraph that's doomed to be deleted - poor lil paragraph.");
+
+		document.getElementsByClassName("paragraph")[2].remove();
 	</script>
     <script defer id="test">
         /**
