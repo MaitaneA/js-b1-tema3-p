@@ -88,7 +88,13 @@
     </body>
     <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
-
+        document.getElementById('mySubmit').addEventListener("click", (event) => {
+            const extras = document.querySelectorAll('input:checked');
+            if (extras.length < 1) {
+                event.preventDefault();
+                document.getElementById('myContent').textContent = "You must select almost one extra";
+            }
+        });
     </script>
     <script defer id="test">
         /**

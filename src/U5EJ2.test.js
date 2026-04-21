@@ -5,10 +5,10 @@ describe("tests", () => {
 	const newTriangle = tests()[1];
 	let arrayTest;
 	const myJSON = '{"base":10,"height":5,"rightTriangle":false}';
-	test('comproves that constant myTriangle is correctly defined', () => {
+	test('verifies that constant myTriangle is correctly defined', () => {
 		expect(JSON.stringify(myTriangles)==myJSON).toBe(true);
 	});
-	test('comproves that the value of localStorage["newTriangle"] is correctly defined', () => {
+	test('verifies that the value of sessionStorage["newTriangle"] is correctly defined', () => {
         let isValidJson = true;
         try{ 
             arrayTest = JSON.parse(newTriangle);

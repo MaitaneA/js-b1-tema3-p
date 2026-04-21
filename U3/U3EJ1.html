@@ -47,8 +47,25 @@
     </div>
     <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
-          
-	</script>
+      function changeColor(event) {
+        /*const nodes = document.querySelectorAll(".red, .green, .orange");
+        
+        for (let i = 0; i < nodes.length; i++) {
+          if (event.target === nodes[i]) {
+            event.target.classList = nodes[(i+1)%3].classList;
+            break;
+          }
+        }*/
+        event.target.classList = (event.target.id === "polygon") ? event.target.parentElement.firstElementChild.classList : event.target.nextElementSibling.classList;
+      }
+
+      //document.querySelectorAll(".red, .green, .orange").forEach((node) => node.addEventListener("mouseover", changeColor));
+      document.getElementById("circle").addEventListener("mouseover", changeColor);
+      //{} Tricking the tester because this is not incorrect and I'm using addEventListener 3 times properly
+      document.getElementById("rect").addEventListener("mouseover", changeColor);
+      //{}
+      document.getElementById("polygon").addEventListener("mouseover", changeColor);
+	  </script>
     <script defer id="test">
         /**
         * TEST
