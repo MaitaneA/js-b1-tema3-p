@@ -68,17 +68,13 @@
         </form>
         <script defer id="solutionJS">
         //Escribe aquí tu solución / escriviu aquí la vostra solució:
-        document.getElementById("sunroof").addEventListener("change", (e) => {
-            if(e.target.checked) {
-                document.getElementById("armored-windows").checked = false;
-                document.getElementById("tinted-windows").checked = false;
-            }
+        document.getElementById("sunroof").addEventListener("change", () => {
+            document.getElementById("armored-windows").checked = false;
+            document.getElementById("tinted-windows").checked = false;
         });
 
         document.querySelectorAll("#armored-windows, #tinted-windows").forEach((node) => node.addEventListener("change", (e) => {
-            if(e.target.checked) {
-                document.getElementById("sunroof").checked = false;
-            }
+            document.getElementById("sunroof").checked = false;
         }));
 
         </script>
